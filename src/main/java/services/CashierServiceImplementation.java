@@ -14,14 +14,14 @@ import java.util.Queue;
 public  class CashierServiceImplementation  implements iCashier {
 
     private Customer nextCustomerInLine;
-    private Queue<OrderDetails> OatmealRaisinQueue = new PriorityQueue<>(new OrderCompare());
-    private Queue<OrderDetails>   CarrotQueue = new PriorityQueue<>(new OrderCompare());
-    private Queue<OrderDetails> BranQueue = new PriorityQueue<>(new OrderCompare());
-    private Queue<OrderDetails> ArrowRootQueue = new PriorityQueue<>(new OrderCompare());
-    private Queue<OrderDetails> PotatoChipsQueue = new PriorityQueue<>(new OrderCompare());
-    private Queue<OrderDetails> PretzelsQueue = new PriorityQueue<>(new OrderCompare());
-    private Queue<OrderDetails> WholeWheatQueue = new PriorityQueue<>(new OrderCompare());
-    private Queue<OrderDetails> BananaQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO> OatmealRaisinQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO>   CarrotQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO> BranQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO> ArrowRootQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO> PotatoChipsQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO> PretzelsQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO> WholeWheatQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<CustomerDTO> BananaQueue = new PriorityQueue<>(new OrderCompare());
 
 
     @Override
@@ -62,10 +62,11 @@ public  class CashierServiceImplementation  implements iCashier {
                         message =  "Updated";
                     }else{
                         customer.getCart().put(productInInventory.getKey() , new Product(productInInventory.getValue().getProductId(),productInInventory.getValue().getProductName() , productInInventory.getValue().getProductCategory() , quantityToAdd , productInInventory.getValue().getPrice()) );
-                        productInInventory.getValue().setProductQty(productInInventory.getValue().getProductQty() - quantityToAdd);
-                        System.out.println(productInInventory.getValue().getProductName() + " has been added to cart! ");
+
+                        System.out.println("Hello "+ customer.getName()+" your " +productInInventory.getValue().getProductName() + " has been added to cart! ");
                         message = "Added";
                     }
+                    productInInventory.getValue().setProductQty(productInInventory.getValue().getProductQty() - quantityToAdd);
                 }else{
                     System.out.println(productInInventory.getValue().getProductName() + " is Currently Out of stock!");
                     message = "NoStock";
@@ -122,28 +123,28 @@ public  class CashierServiceImplementation  implements iCashier {
         if (!customer.getCart().isEmpty()){
             for (Map.Entry<String , Product> singleProductInCart : customer.getCart().entrySet()){
                 if(singleProductInCart.getValue().getProductName().equalsIgnoreCase("Potato Chips")){
-                    PotatoChipsQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    PotatoChipsQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "PChipAdded";
                 } else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Pretzels")) {
-                    PretzelsQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    PretzelsQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "PretzelsAdded";
                 }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Whole Wheat")) {
-                    WholeWheatQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    WholeWheatQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "WWAdded";
                 }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Banana")) {
-                    BananaQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    BananaQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "BananaAdded";
                 }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Bran")) {
-                    BranQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    BranQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "BranAdded";
                 }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Carrot")) {
-                    CarrotQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    CarrotQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "CarrotAdded";
                 }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Oatmeal Raisin")) {
-                    OatmealRaisinQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    OatmealRaisinQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "ORAdded";
                 }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Arrowroot")) {
-                    ArrowRootQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    ArrowRootQueue.add(new CustomerDTO(customer.getName() , singleProductInCart.getValue()));
                     message = "ARAdded";
                 }
              //   cashier.getQueuedCustomers().add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
@@ -154,10 +155,12 @@ public  class CashierServiceImplementation  implements iCashier {
         return message;
     }
 
-    public boolean sellBySortedProuctQuantity(Queue<OrderDetails> queue){
+    public  synchronized boolean  sellBySortedProuctQuantity(Queue<CustomerDTO> queue){
        // assert queue.poll() != null;
         while (!queue.isEmpty()){
-            System.out.println( queue.poll());
+            System.out.println(queue.peek().getCustomerName() + " has bought " +queue.peek().getProduct().getProductQty()+ " quantities "+  queue.peek().getProduct().getProductName());
+            queue.poll();
+
         }
         return true;
     }
@@ -190,67 +193,67 @@ public  class CashierServiceImplementation  implements iCashier {
         System.out.println("--------------------------------------------------------------------------");
     }
 
-    public Queue<OrderDetails> getOatmealRaisinQueue() {
+    public Queue<CustomerDTO> getOatmealRaisinQueue() {
         return OatmealRaisinQueue;
     }
 
-    public void setOatmealRaisinQueue(Queue<OrderDetails> oatmealRaisinQueue) {
+    public void setOatmealRaisinQueue(Queue<CustomerDTO> oatmealRaisinQueue) {
         OatmealRaisinQueue = oatmealRaisinQueue;
     }
 
-    public Queue<OrderDetails> getCarrotQueue() {
+    public Queue<CustomerDTO> getCarrotQueue() {
         return CarrotQueue;
     }
 
-    public void setCarrotQueue(Queue<OrderDetails> carrotQueue) {
+    public void setCarrotQueue(Queue<CustomerDTO> carrotQueue) {
         CarrotQueue = carrotQueue;
     }
 
-    public Queue<OrderDetails> getBranQueue() {
+    public Queue<CustomerDTO> getBranQueue() {
         return BranQueue;
     }
 
-    public void setBranQueue(Queue<OrderDetails> branQueue) {
+    public void setBranQueue(Queue<CustomerDTO> branQueue) {
         BranQueue = branQueue;
     }
 
-    public Queue<OrderDetails> getArrowRootQueue() {
+    public Queue<CustomerDTO> getArrowRootQueue() {
         return ArrowRootQueue;
     }
 
-    public void setArrowRootQueue(Queue<OrderDetails> arrowRootQueue) {
+    public void setArrowRootQueue(Queue<CustomerDTO> arrowRootQueue) {
         ArrowRootQueue = arrowRootQueue;
     }
 
-    public Queue<OrderDetails> getPotatoChipsQueue() {
+    public Queue<CustomerDTO> getPotatoChipsQueue() {
         return PotatoChipsQueue;
     }
 
-    public void setPotatoChipsQueue(Queue<OrderDetails> potatoChipsQueue) {
+    public void setPotatoChipsQueue(Queue<CustomerDTO> potatoChipsQueue) {
         PotatoChipsQueue = potatoChipsQueue;
     }
 
-    public Queue<OrderDetails> getPretzelsQueue() {
+    public Queue<CustomerDTO> getPretzelsQueue() {
         return PretzelsQueue;
     }
 
-    public void setPretzelsQueue(Queue<OrderDetails> pretzelsQueue) {
+    public void setPretzelsQueue(Queue<CustomerDTO> pretzelsQueue) {
         PretzelsQueue = pretzelsQueue;
     }
 
-    public Queue<OrderDetails> getWholeWheatQueue() {
+    public Queue<CustomerDTO> getWholeWheatQueue() {
         return WholeWheatQueue;
     }
 
-    public void setWholeWheatQueue(Queue<OrderDetails> wholeWheatQueue) {
+    public void setWholeWheatQueue(Queue<CustomerDTO> wholeWheatQueue) {
         WholeWheatQueue = wholeWheatQueue;
     }
 
-    public Queue<OrderDetails> getBananaQueue() {
+    public Queue<CustomerDTO> getBananaQueue() {
         return BananaQueue;
     }
 
-    public void setBananaQueue(Queue<OrderDetails> bananaQueue) {
+    public void setBananaQueue(Queue<CustomerDTO> bananaQueue) {
         BananaQueue = bananaQueue;
     }
 }

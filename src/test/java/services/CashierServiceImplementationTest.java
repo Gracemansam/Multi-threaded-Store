@@ -2,13 +2,11 @@ package services;
 
 import models.Customer;
 import models.OrderCompare;
-import models.OrderDetails;
+import models.CustomerDTO;
 import models.Product;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -292,13 +290,17 @@ class CashierServiceImplementationTest {
 
     }
     @Test
-    void sellBySortedProuctQuantity(){
+    void sellBySortedProductQuantity(){
         //Given
-        Product product = new Product("P244" , "Arrowroot" , "Cookies", 10 ,1.98);
+        Product product = new Product("P244" , "Arrowroot" , "Cookies", 100 ,1.98);
+        Product product2 = new Product("P244" , "Arrowroot" , "Cookies", 50 ,1.98);
         Customer customerTest = new Customer("1" , "Vincent" , "Lagos" , 500000);
-        OrderDetails orderDetailsTest = new OrderDetails("Vincent" , product);
-        Queue<OrderDetails> queueTest = new PriorityQueue<>(new OrderCompare());
-        queueTest.add(orderDetailsTest);
+        Customer customerTest2 = new Customer("2" , "sam" , "Lagos" , 5000000);
+        CustomerDTO customerDTOTest = new CustomerDTO("Vincent" , product);
+        CustomerDTO customerDTOTest2 = new CustomerDTO("sam" , product2);
+        Queue<CustomerDTO> queueTest = new PriorityQueue<>(new OrderCompare());
+        queueTest.add(customerDTOTest);
+        queueTest.add(customerDTOTest2);
         CashierServiceImplementation cashierImplTest = new CashierServiceImplementation();
 
         //When

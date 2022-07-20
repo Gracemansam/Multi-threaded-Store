@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public class Product implements  Comparable<Product>{
+public class Product{
 
     private String productId;
     private String productName;
@@ -97,8 +97,8 @@ public class Product implements  Comparable<Product>{
         return Objects.hash(productId, productName, productCategory, productQty, price);
     }
 
-    @Override
-    public int compareTo(Product o) {
-        return o.productQty < this.productQty ? -1 : 1;
-    }
+ //   @Override
+  //  public int compareTo(Product o) {
+       // return o.productQty < this.productQty ? -1 : 1;
+ //   }
 }

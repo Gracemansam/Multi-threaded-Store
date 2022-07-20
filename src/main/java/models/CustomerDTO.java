@@ -3,11 +3,9 @@ package models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Comparator;
-
 @Data
 @AllArgsConstructor
-public class OrderDetails {
+public class CustomerDTO {
     private String customerName;
 
     private Product product;

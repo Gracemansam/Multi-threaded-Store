@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5aa8e977-071a-4622-8322-45dad7ef25b5" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/PurchaseWithTread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/base/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/OrderCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/OrderCompare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/CustomerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CashierServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CashierServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/services/CashierServiceImplementationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/services/CashierServiceImplementationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/base/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/base/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/OrderCompare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/OrderCompare.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/OrderDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/CashierServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/CashierServiceImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/services/CashierServiceImplementationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/services/CashierServiceImplementationTest.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2CDLgf50yLgKqRmAeszoXhGZeYH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/admin/Downloads/ReadExcelFile 2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="services" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="models.Main" />
+      <module name="ReadExcelFile" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CashierServiceImplementationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ReadExcelFile" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.CashierServiceImplementationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CashierServiceImplementationTest.sellBySortedProductQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ReadExcelFile" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.CashierServiceImplementationTest" />
+      <option name="METHOD_NAME" value="sellBySortedProductQuantity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CashierServiceImplementationTest.sellProduct_successfull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ReadExcelFile" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.CashierServiceImplementationTest" />
+      <option name="METHOD_NAME" value="sellProduct_successfull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CashierServiceImplementationTest.sortProductsAndAddToIndividualQueue_Test_Potato_Chips_Added" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ReadExcelFile" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.CashierServiceImplementationTest" />
+      <option name="METHOD_NAME" value="sortProductsAndAddToIndividualQueue_Test_Potato_Chips_Added" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CashierServiceImplementationTest" />
+        <item itemvalue="JUnit.CashierServiceImplementationTest.sellProduct_successfull" />
+        <item itemvalue="JUnit.CashierServiceImplementationTest.sellBySortedProductQuantity" />
+        <item itemvalue="JUnit.CashierServiceImplementationTest.sortProductsAndAddToIndividualQueue_Test_Potato_Chips_Added" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5aa8e977-071a-4622-8322-45dad7ef25b5" name="Changes" comment="" />
+      <created>1658332326736</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658332326736</updated>
+      <workItem from="1658332340376" duration="49000" />
+      <workItem from="1658332505181" duration="1938000" />
+      <workItem from="1658412154680" duration="2581000" />
+      <workItem from="1658483829172" duration="2220000" />
+      <workItem from="1658569431962" duration="3937000" />
+      <workItem from="1658609268134" duration="4136000" />
+      <workItem from="1658647295518" duration="675000" />
+      <workItem from="1658694646126" duration="978000" />
+      <workItem from="1658742075071" duration="1453000" />
+      <workItem from="1658775064839" duration="16861000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit">
+      <created>1658333034978</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1658333034978</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit">
+      <created>1658333120351</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658333120351</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/services/CashierServiceImplementation.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/services/CashierServiceImplementationTest.java</url>
+          <line>293</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

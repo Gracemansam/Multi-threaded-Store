@@ -11,17 +11,17 @@ public abstract class User{
     private String age;
     private double walletBalance;
 
-    private Queue<OrderDetails> QueuedCustomers;
+    private Queue<CustomerDTO> QueuedCustomers;
     private HashMap<String , Product> cart;
 
 
 
 
-    public Queue<OrderDetails> getQueuedCustomers() {
+    public Queue<CustomerDTO> getQueuedCustomers() {
         return QueuedCustomers;
     }
 
-    public void setQueuedCustomers(Queue<OrderDetails> queuedCustomers) {
+    public void setQueuedCustomers(Queue<CustomerDTO> queuedCustomers) {
         QueuedCustomers = queuedCustomers;
     }
 
