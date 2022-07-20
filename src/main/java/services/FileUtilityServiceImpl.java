@@ -1,8 +1,8 @@
-package main.java.services;
+package services;
 
-import main.java.interfaces.iFileUtility;
-import main.java.models.Product;
-import main.java.utility.FileUtility;
+import interfaces.iFileUtility;
+import models.Product;
+import utility.FileUtility;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,18 +27,22 @@ public class FileUtilityServiceImpl  implements iFileUtility {
     public HashMap<String , Product>  createCategoryInventory(HashMap<String, Product> categoryHashMap, FileUtility file, int categoryTotalQuantity, String categoryId, int idIncreament) throws IOException {
         String[] inventory = new String[0];
         String line = file.getLine();
-        while ((line = file.getReader().readLine()) != null) {
+
             while ((line = file.getReader().readLine()) != null) {
-                inventory = line.split(",");
-                if (checkDuplicate(categoryHashMap , inventory[4])){
-                    categoryTotalQuantity += Integer.parseInt(inventory[5]);
-                    categoryHashMap.put(inventory[4] , new Product(categoryId + (idIncreament++) , inventory[4], inventory[3] , categoryTotalQuantity ,Double.parseDouble(inventory[6]) ));
-                }else {
-                    categoryHashMap.put(inventory[4] , new Product(categoryId + (idIncreament++) , inventory[4], inventory[3] , Integer. parseInt(inventory[5]) ,Double.parseDouble(inventory[6]) ));
+                while ((line = file.getReader().readLine()) != null) {
+                    inventory = line.split(",");
+                    if (checkDuplicate(categoryHashMap , inventory[4])){
+                       categoryTotalQuantity += Integer.parseInt(inventory[5]);
+                       categoryHashMap.put(inventory[4] , new Product(categoryId + (idIncreament++) , inventory[4], inventory[3] , categoryTotalQuantity ,Double.parseDouble(inventory[6]) ));
+                    }else {
+                        categoryHashMap.put(inventory[4] , new Product(categoryId + (idIncreament++) , inventory[4], inventory[3] , Integer.parseInt(inventory[5]) ,Double.parseDouble(inventory[6]) ));
+                    }
                 }
             }
-        }
+
+
         return categoryHashMap;
     }
+
 
 }

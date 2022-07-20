@@ -1,7 +1,7 @@
-package main.java.models;
+package models;
 
-import main.java.base.User;
-import main.java.interfaces.iManager;
+import base.User;
+import interfaces.iManager;
 
 public class Manager extends User {
 

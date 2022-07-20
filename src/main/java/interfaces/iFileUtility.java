@@ -1,7 +1,7 @@
-package main.java.interfaces;
+package interfaces;
 
-import main.java.models.Product;
-import main.java.utility.FileUtility;
+import models.Product;
+import utility.FileUtility;
 
 import java.io.IOException;
 import java.util.HashMap;

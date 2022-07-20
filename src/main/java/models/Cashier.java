@@ -1,7 +1,7 @@
-package main.java.models;
+package models;
 
-//import base.User;
-import main.java.base.User;
+
+import base.User;
 
 
 public class Cashier  extends User {

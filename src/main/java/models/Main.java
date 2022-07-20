@@ -1,91 +1,67 @@
-package main.java.models;
+package models;
 
-import main.java.services.CashierServiceImplementation;
-import main.java.services.CustomerServiceImpl;
-import main.java.services.ManagerServiceImpl;
-import main.java.utility.Inventory;
-import main.java.models.Product;
+import services.CashierServiceImplementation;
+import services.CategoryImplementation;
+import services.CustomerServiceImpl;
+import services.ManagerServiceImpl;
+import utility.Inventory;
+import models.Product;
+import models.Cashier;
+import models.Customer;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static Scanner input = new Scanner(System.in);
+
 
     public static void main(String[] args) throws IOException {
 
         Inventory inventory = new Inventory();
         CashierServiceImplementation cashierService = new CashierServiceImplementation();
         CustomerServiceImpl customerService = new CustomerServiceImpl();
+        CategoryImplementation categoryService = new CategoryImplementation();
         ManagerServiceImpl managerService = new ManagerServiceImpl();
-        Customer customer = new Customer("bb" , "Vincent" , "Lagos" , 5000);
+        Customer customer = new Customer("bb" , "Vincent" , "Lagos" , 5000000);
+        Customer customer1 = new Customer("bb" , "Enwere" , "Lagos" , 5000000);
+        Customer customer2 = new Customer("bb" , "Charles" , "Lagos" , 5000000);
         Cashier cashier = new Cashier();
-
-        //******* Start Of Manager Service **********//
-
-        System.out.print("Enter Applicant's  Name: ");
-        String ApplicantName = input.nextLine();
-        System.out.print("Enter Applicant's  Age: ");
-        int ApplicantAge = input.nextInt();
-
-        managerService.hireCashier(ApplicantName,ApplicantAge, cashier );
-
-        //******* End Of Manager Service **********//
+        Cashier cashier1 = new Cashier("1" , "Cashier" , "25");
 
 
+        cashierService.addToCart("P224" , 2000, inventory.getBarsCategory(), customer);
+        cashierService.addToCart("P242" , 200, inventory.getBarsCategory(), customer);
+        cashierService.addToCart("P213" , 20, inventory.getBarsCategory(), customer);
+        cashierService.addToCart("P189" , 270, inventory.getBarsCategory(), customer);
+        cashierService.addToCart("P224" , 290, inventory.getBarsCategory(), customer1);
+        cashierService.addToCart("P242" , 200, inventory.getBarsCategory(), customer1);
+        cashierService.addToCart("P189" , 200, inventory.getBarsCategory(), customer1);
+        cashierService.addToCart("P224" , 200, inventory.getBarsCategory(), customer2);
+        cashierService.addToCart("P242" , 200, inventory.getBarsCategory(), customer2);
+        cashierService.addToCart("P189" , 401, inventory.getBarsCategory(), customer2);
 
 
-     //   searchByCategory("Crackers" , inventory.getBarsCategory());
-        getAllCategory(inventory.getBarsCategory());
-        String productId = null;
-        int quantityToBuy = 0;
 
-        do{
-            System.out.print("Enter Product ID to Add to Cart(Press Q to Proceed To CheckOut) :");
-            productId = input.next();
-            if (productId.equalsIgnoreCase("Q")){
-                System.out.println("Proceeding To CheckOut...");
-                break;
-            }
-            System.out.print("Enter Quantity To Buy: ");
-            quantityToBuy = input.nextInt();
+        cashierService.sortProductsAndAddToIndividualQueue(customer);
+        cashierService.sortProductsAndAddToIndividualQueue(customer2);
+        cashierService.sortProductsAndAddToIndividualQueue(customer1);
 
-            cashierService.addToCart(productId , quantityToBuy, inventory.getBarsCategory(), customer);
+        cashierService.sellBySortedProuctQuantity(cashierService.getPotatoChipsQueue());
+        cashierService.sellBySortedProuctQuantity(cashierService.getBananaQueue());
+        cashierService.sellBySortedProuctQuantity(cashierService.getWholeWheatQueue());
+        cashierService.sellBySortedProuctQuantity(cashierService.getPretzelsQueue());
 
-
-        }while(productId.equalsIgnoreCase("P244") || productId.equalsIgnoreCase("P243") || productId.equalsIgnoreCase("P237") || productId.equalsIgnoreCase("P240") || productId.equalsIgnoreCase("P224") || productId.equalsIgnoreCase("P241") || productId.equalsIgnoreCase("P213") || productId.equalsIgnoreCase("P242") || productId.equalsIgnoreCase("P189"));
-
-        cashierService.sellProduct(customer);
-        customerService.buyProduct(customer);
-    }
-
-
-    public static void searchByCategory(String categoryName , HashMap<String , Product> inventory){
-        System.out.println("----------------------------------------------------------------------------------------------");
-        System.out.printf("%-8s %20s %20s %20s %20s %n" , "PRODUCT ID", "PRODUCT NAME", "CATEGORY" ,  "PRICE", "QUANTITY");
-        System.out.println("----------------------------------------------------------------------------------------------");
-        System.out.println();
-        for (Map.Entry<String, Product> categoryProduct : inventory.entrySet()){
-            if (categoryProduct.getValue().getProductCategory().equalsIgnoreCase(categoryName)){
-                System.out.printf("%-8s %20s %20s %20s %20s %n" , categoryProduct.getValue().getProductId(), categoryProduct.getValue().getProductName(), categoryProduct.getValue().getProductCategory() , categoryProduct.getValue().getPrice() , categoryProduct.getValue().getProductQty());
-            }
-        }
-        System.out.println("----------------------------------------------------------------------------------------------");
+        cashierService.invoice(customer);
+        cashierService.invoice(customer1);
+        cashierService.invoice(customer2);
 
     }
 
-    public static void getAllCategory( HashMap<String , Product> inventory){
-        System.out.println("----------------------------------------------------------------------------------------------");
-        System.out.printf("%-8s %20s %20s %20s %20s %n" , "PRODUCT ID", "PRODUCT NAME", "CATEGORY" ,  "PRICE", "QUANTITY");
-        System.out.println("----------------------------------------------------------------------------------------------");
-        System.out.println();
-        for (Map.Entry<String, Product> categoryProduct : inventory.entrySet()){
-                System.out.printf("%-8s %20s %20s %20s %20s %n" , categoryProduct.getValue().getProductId(), categoryProduct.getValue().getProductName(), categoryProduct.getValue().getProductCategory() , categoryProduct.getValue().getPrice() , categoryProduct.getValue().getProductQty());
-        }
-        System.out.println("----------------------------------------------------------------------------------------------");
 
-    }
+
+
+
+
 }
 
 

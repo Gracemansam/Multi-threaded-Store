@@ -1,7 +1,7 @@
-package main.java.services;
+package services;
 
-import main.java.interfaces.iManager;
-import main.java.models.Cashier;
+import interfaces.iManager;
+import models.Cashier;
 
 public class ManagerServiceImpl implements iManager {
     @Override

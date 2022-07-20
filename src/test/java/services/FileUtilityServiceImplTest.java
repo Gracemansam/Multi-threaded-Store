@@ -1,10 +1,9 @@
-package test;
+package services;
 
-import main.java.models.Product;
-import main.java.services.FileUtilityServiceImpl;
-import main.java.utility.FileUtility;
+import models.Product;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utility.FileUtility;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,8 +18,8 @@ class FileUtilityTest {
 
     @BeforeEach
     void setUp() throws FileNotFoundException {
-      file  = new FileUtility("resources/FoodSales.csv");
-      fileUtilityService = new FileUtilityServiceImpl("resources/FoodSales.csv");
+        file  = new FileUtility("resources/FoodSales.csv");
+        fileUtilityService = new FileUtilityServiceImpl("resources/FoodSales.csv");
     }
 
 
@@ -50,9 +49,6 @@ class FileUtilityTest {
     @Test
     void createCategoryInventory() throws IOException {
         HashMap<String, Product> categoryHashMap = new HashMap<>();
-
-
-
         var actual = fileUtilityService.createCategoryInventory(categoryHashMap , file, 0 , "P" , 1);
         var exxpected = categoryHashMap;
         assertEquals(exxpected , actual);

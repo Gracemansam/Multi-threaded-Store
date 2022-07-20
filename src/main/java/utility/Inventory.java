@@ -1,8 +1,8 @@
-package main.java.utility;
+package utility;
 
-import main.java.services.FileUtilityServiceImpl;
-import main.java.utility.FileUtility;
-import main.java.models.Product;
+import services.FileUtilityServiceImpl;
+import utility.FileUtility;
+import models.Product;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,16 +1,31 @@
-package main.java.base;
-import main.java.models.Product;
+package base;
+import models.*;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
-public abstract class User {
+
+public abstract class User{
     private String id;
     private String name;
     private String address;
     private String age;
     private double walletBalance;
+
+    private Queue<OrderDetails> QueuedCustomers;
     private HashMap<String , Product> cart;
+
+
+
+
+    public Queue<OrderDetails> getQueuedCustomers() {
+        return QueuedCustomers;
+    }
+
+    public void setQueuedCustomers(Queue<OrderDetails> queuedCustomers) {
+        QueuedCustomers = queuedCustomers;
+    }
+
+
 
     //Manager Constructor
     public User(String id, String name){
@@ -23,6 +38,7 @@ public abstract class User {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.QueuedCustomers = new PriorityQueue<>(new OrderCompare());
     }
 
     //Customer Constructor
@@ -32,6 +48,7 @@ public abstract class User {
         this.address = address;
         this.walletBalance = walletBalance;
         this.cart = new HashMap<>();
+
     }
 
     public User() {
@@ -89,6 +106,8 @@ public abstract class User {
     public void setWalletBalance(double walletBalance) {
         this.walletBalance = walletBalance;
     }
+
+
 
     public HashMap<String, Product> getCart() {
         return cart;

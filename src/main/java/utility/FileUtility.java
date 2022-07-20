@@ -1,7 +1,7 @@
-package main.java.utility;
+package utility;
 
 //import models.Product;
-import  main.java.models.Product;
+import  models.Product;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

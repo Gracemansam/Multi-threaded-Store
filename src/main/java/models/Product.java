@@ -1,15 +1,22 @@
-package main.java.models;
+package models;
 
-import java.util.HashMap;
 import java.util.Objects;
 
-public class Product{
+public class Product implements  Comparable<Product>{
 
     private String productId;
     private String productName;
+
     private String productCategory;
+
     private int productQty;
+
     private double price;
+
+
+
+
+
 
 
     public Product(String productId, String productName, String productCategory, int productQty, double price) {
@@ -88,5 +95,10 @@ public class Product{
     @Override
     public int hashCode() {
         return Objects.hash(productId, productName, productCategory, productQty, price);
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return o.productQty < this.productQty ? -1 : 1;
     }
 }

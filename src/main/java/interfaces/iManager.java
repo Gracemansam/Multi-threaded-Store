@@ -1,6 +1,6 @@
-package main.java.interfaces;
+package interfaces;
 
-import main.java.models.Cashier;
+import models.Cashier;
 
 public interface iManager {
     public void hireCashier(String ApplicantName, int ApplicantAge ,  Cashier cashier);

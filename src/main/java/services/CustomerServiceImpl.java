@@ -1,8 +1,9 @@
-package main.java.services;
+package services;
 
-import main.java.interfaces.iCustomer;
-import main.java.models.Customer;
-import main.java.models.Product;
+import interfaces.iCustomer;
+import interfaces.iCustomer;
+import models.Customer;
+import models.Product;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +40,7 @@ public class CustomerServiceImpl implements iCustomer {
             //check if selected product is in store
             if (productToBeAdded.equalsIgnoreCase(productInInventory.getValue().getProductId())){
                 //Check if the product is still in stock
-                if (productInInventory.getValue().getProductQty() > 1 && productInInventory.getValue().getProductQty() > quantityToAdd){
+                if (productInInventory.getValue().getProductQty() > 1 && productInInventory.getValue().getProductQty() >= quantityToAdd){
                     //check if product already exist in cart
                     if (checkDuplicate(productToBeAdded , customer.getCart())){
                         product = findProduct(productInInventory.getKey() , customer.getCart());
@@ -60,6 +61,7 @@ public class CustomerServiceImpl implements iCustomer {
         }
         return message;
     }
+
 
 
     @Override

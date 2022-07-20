@@ -1,7 +1,7 @@
-package main.java.interfaces;
+package interfaces;
 
-import main.java.models.Customer;
-import main.java.models.Product;
+import models.Customer;
+import models.Product;
 
 
 import java.util.HashMap;

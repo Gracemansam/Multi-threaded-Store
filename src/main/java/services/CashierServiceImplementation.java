@@ -1,16 +1,27 @@
-package main.java.services;
+package services;
 
 //import base.User;
-import main.java.interfaces.iCashier;
-import main.java.models.Cashier;
-import main.java.models.Customer;
-import main.java.models.Product;
+import interfaces.iCashier;
+
+import models.*;
 
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public  class CashierServiceImplementation  implements iCashier {
+
+    private Customer nextCustomerInLine;
+    private Queue<OrderDetails> OatmealRaisinQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<OrderDetails>   CarrotQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<OrderDetails> BranQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<OrderDetails> ArrowRootQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<OrderDetails> PotatoChipsQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<OrderDetails> PretzelsQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<OrderDetails> WholeWheatQueue = new PriorityQueue<>(new OrderCompare());
+    private Queue<OrderDetails> BananaQueue = new PriorityQueue<>(new OrderCompare());
 
 
     @Override
@@ -24,7 +35,6 @@ public  class CashierServiceImplementation  implements iCashier {
         return isAdded;
     }
 
-    @Override
     public Product findProduct(String productKey, HashMap<String , Product> cart){
         Product product = null;
         for (Map.Entry<String , Product> productInCart : cart.entrySet()){
@@ -67,8 +77,18 @@ public  class CashierServiceImplementation  implements iCashier {
         return message;
     }
 
+    //Method to add customer to Queue provided Cart is not empty!.
+
+
+
+
+
+
+
+
+
     @Override
-    public String sellProduct(Customer customer){
+     public String    sellProduct(Customer customer){
         String message = "";
         if(customer.getCart().size() > 0){
             int total = 0;
@@ -77,10 +97,10 @@ public  class CashierServiceImplementation  implements iCashier {
             }
             if(total < customer.getWalletBalance()){
                 customer.setWalletBalance(customer.getWalletBalance() - total);
-                System.out.println("Purchase Successfull");
+                System.out.println("Purchase Successful");
                 invoice(customer);
                // System.out.println(customer.getWalletBalance());
-                message = "successfull";
+                message = "successful";
             }else{
                 System.out.println("Insufficient Funds");
                 message = "insufficient";
@@ -91,6 +111,63 @@ public  class CashierServiceImplementation  implements iCashier {
         }
         return message;
     }
+
+
+
+
+
+    public String sortProductsAndAddToIndividualQueue(Customer customer ){
+
+        String message = "";
+        if (!customer.getCart().isEmpty()){
+            for (Map.Entry<String , Product> singleProductInCart : customer.getCart().entrySet()){
+                if(singleProductInCart.getValue().getProductName().equalsIgnoreCase("Potato Chips")){
+                    PotatoChipsQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "PChipAdded";
+                } else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Pretzels")) {
+                    PretzelsQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "PretzelsAdded";
+                }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Whole Wheat")) {
+                    WholeWheatQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "WWAdded";
+                }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Banana")) {
+                    BananaQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "BananaAdded";
+                }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Bran")) {
+                    BranQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "BranAdded";
+                }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Carrot")) {
+                    CarrotQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "CarrotAdded";
+                }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Oatmeal Raisin")) {
+                    OatmealRaisinQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "ORAdded";
+                }else if (singleProductInCart.getValue().getProductName().equalsIgnoreCase("Arrowroot")) {
+                    ArrowRootQueue.add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+                    message = "ARAdded";
+                }
+             //   cashier.getQueuedCustomers().add(new OrderDetails(customer.getName() , singleProductInCart.getValue()));
+            }
+        }else {
+            message = "cartEmpty";
+        }
+        return message;
+    }
+
+    public boolean sellBySortedProuctQuantity(Queue<OrderDetails> queue){
+       // assert queue.poll() != null;
+        while (!queue.isEmpty()){
+            System.out.println( queue.poll());
+        }
+        return true;
+    }
+    public boolean sellByPriority(Queue<Customer> queue){
+        while(!queue.isEmpty()){
+            sellProduct(queue.poll());
+        }
+        return true;
+    }
+
 
     public void invoice(Customer customer){
         System.out.printf("%40s" , "INVOICE");
@@ -113,4 +190,67 @@ public  class CashierServiceImplementation  implements iCashier {
         System.out.println("--------------------------------------------------------------------------");
     }
 
+    public Queue<OrderDetails> getOatmealRaisinQueue() {
+        return OatmealRaisinQueue;
+    }
+
+    public void setOatmealRaisinQueue(Queue<OrderDetails> oatmealRaisinQueue) {
+        OatmealRaisinQueue = oatmealRaisinQueue;
+    }
+
+    public Queue<OrderDetails> getCarrotQueue() {
+        return CarrotQueue;
+    }
+
+    public void setCarrotQueue(Queue<OrderDetails> carrotQueue) {
+        CarrotQueue = carrotQueue;
+    }
+
+    public Queue<OrderDetails> getBranQueue() {
+        return BranQueue;
+    }
+
+    public void setBranQueue(Queue<OrderDetails> branQueue) {
+        BranQueue = branQueue;
+    }
+
+    public Queue<OrderDetails> getArrowRootQueue() {
+        return ArrowRootQueue;
+    }
+
+    public void setArrowRootQueue(Queue<OrderDetails> arrowRootQueue) {
+        ArrowRootQueue = arrowRootQueue;
+    }
+
+    public Queue<OrderDetails> getPotatoChipsQueue() {
+        return PotatoChipsQueue;
+    }
+
+    public void setPotatoChipsQueue(Queue<OrderDetails> potatoChipsQueue) {
+        PotatoChipsQueue = potatoChipsQueue;
+    }
+
+    public Queue<OrderDetails> getPretzelsQueue() {
+        return PretzelsQueue;
+    }
+
+    public void setPretzelsQueue(Queue<OrderDetails> pretzelsQueue) {
+        PretzelsQueue = pretzelsQueue;
+    }
+
+    public Queue<OrderDetails> getWholeWheatQueue() {
+        return WholeWheatQueue;
+    }
+
+    public void setWholeWheatQueue(Queue<OrderDetails> wholeWheatQueue) {
+        WholeWheatQueue = wholeWheatQueue;
+    }
+
+    public Queue<OrderDetails> getBananaQueue() {
+        return BananaQueue;
+    }
+
+    public void setBananaQueue(Queue<OrderDetails> bananaQueue) {
+        BananaQueue = bananaQueue;
+    }
 }
