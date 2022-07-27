@@ -57,7 +57,7 @@ public class Main {
         var sellWithTread3 = new SellWithTread(cashierService.getWholeWheatQueue());
         var sellWithTread4 = new SellWithTread(cashierService.getPretzelsQueue());
 
-        var thread = new Thread(sellWithTread);
+        Thread thread = new Thread(sellWithTread);
         var thread2 = new Thread(sellWithTread2);
         var thread3 = new Thread(sellWithTread3);
         var thread4 = new Thread(sellWithTread4);

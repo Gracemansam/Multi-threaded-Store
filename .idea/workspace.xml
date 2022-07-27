@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5aa8e977-071a-4622-8322-45dad7ef25b5" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/PurchaseWithTread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/base/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/OrderCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/OrderCompare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/OrderDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/CustomerDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/CashierServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CashierServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/services/CashierServiceImplementationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/services/CashierServiceImplementationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/base/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/base/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/OrderCompare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/OrderCompare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/OrderDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/CashierServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/CashierServiceImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/services/CashierServiceImplementationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/services/CashierServiceImplementationTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +166,7 @@
       <workItem from="1658647295518" duration="675000" />
       <workItem from="1658694646126" duration="978000" />
       <workItem from="1658742075071" duration="1453000" />
-      <workItem from="1658775064839" duration="16861000" />
+      <workItem from="1658775064839" duration="23991000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1658333034978</created>
@@ -196,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658333120351</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit">
+      <created>1658915104570</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658915104570</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
